@@ -2,6 +2,8 @@
 
 me=`basename "$0"`
 VERSION="v0.1.0"
+MAINTAINER="H1ghBre4k3r"
+REPO="https://github.com/H1ghBre4k3r/sproxy-macos.git"
 
 function printHelp() {
     echo "Usage: $me <option> [params]"
@@ -9,6 +11,8 @@ function printHelp() {
     echo "Where <option> is one of the following:"
     echo -e "\t" "-h,--help" 
     echo -e "\t\t\t"    "Display this dialog"
+    echo -e "\t" "-i,--info"
+    echo -e "\t\t\t"    "Show information about this script"
     echo -e "\t" "-v,--version"
     echo -e "\t\t\t"    "Display the version"
     echo -e "\t" "-l,--list"
@@ -17,6 +21,12 @@ function printHelp() {
     echo -e "\t\t\t"    "Turn on the SOCKS proxy for the provided inteface"
     echo -e "\t" "-d,--disable <interface>"
     echo -e "\t\t\t"    "Turn off the SOCKS proxy for the provided inteface"
+}
+
+function printInformation() {
+    echo "SProxy $VERSION"
+    echo "Maintainer: $MAINTAINER"
+    echo "Repo: $REPO"
 }
 
 function printVersion() {
@@ -49,6 +59,10 @@ while test $# -gt 0; do
     case "$1" in
         -h|--help)
             printHelp
+            exit
+        ;;
+        -i|--info)
+            printInformation
             exit
         ;;
         -v|--version)
